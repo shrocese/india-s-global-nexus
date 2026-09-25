@@ -27,7 +27,7 @@ export function DataModules({ partner }: { partner: Partner }) {
 
       <Module
         title="Head to head"
-        subtitle="India vs " + partner.name
+        subtitle={`India vs ${partner.name}`}
         isOpen={open === "compare"}
         onToggle={() => toggle("compare")}
       >
