@@ -33,7 +33,8 @@ Root: India → Partner Country →
 - "Compare With" floating button to overlay a third country
 
 ## Task list
-- [ ] Pick design direction
+- [x] Pick design direction — Dossier as poster, aged paper + typewriter stamps
+- [ ] Core Pillars bar must wrap to multiple rows — vertical scrolling only, no horizontal scroll
 - [ ] Design system tokens in src/styles.css
 - [ ] Home: world map index + partner list + search
 - [ ] Country dashboard shell (hero, vitals ribbon, 30/70 split)
