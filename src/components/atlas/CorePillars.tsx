@@ -34,7 +34,7 @@ export function CorePillars({ partner }: { partner: Partner }) {
         <div
           role="tablist"
           aria-label="Core Pillars"
-          className="flex gap-1.5 overflow-x-auto px-1 pb-1"
+          className="grid grid-cols-2 gap-1.5 px-1 pb-1 sm:grid-cols-4"
         >
           {TABS.map((t) => (
             <button
@@ -43,7 +43,7 @@ export function CorePillars({ partner }: { partner: Partner }) {
               aria-selected={tab === t.id}
               onClick={() => setTab(t.id)}
               className={cn(
-                "flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-sm font-semibold transition-colors",
+                "flex items-center justify-center gap-2 rounded-xl border px-3 py-2 text-center text-[0.8rem] font-semibold leading-tight transition-colors",
                 tab === t.id
                   ? "border-ink bg-ink text-paper"
                   : "border-rule bg-card text-ink-soft hover:border-ink/30",
