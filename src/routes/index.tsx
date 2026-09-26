@@ -69,7 +69,7 @@ function Index() {
           </label>
         </div>
 
-        <div className="mt-8 grid gap-5 lg:grid-cols-[1.7fr_1fr]">
+        <div className="mt-8 grid items-start gap-5 lg:grid-cols-[1.7fr_1fr]">
           <WorldPlate
             markers={filtered}
             hovered={hovered}
