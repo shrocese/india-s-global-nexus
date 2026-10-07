@@ -1,20 +1,14 @@
 import { useState } from "react";
 import { ClaimLine } from "./Annotated";
-import { LiveIntel } from "./LiveIntel";
-import { Timeline } from "./Timeline";
-import { Treaties } from "./Treaties";
 import type { Brief, Partner, Temperature } from "@/data/types";
 import { cn } from "@/lib/utils";
 
 const TABS = [
-  { id: "history", num: "00", label: "History" },
   { id: "political", num: "01", label: "Political & Strategic" },
-  { id: "geographical", num: "02", label: "Geographical" },
+  { id: "geographical", num: "02", label: "Geopolitics & Connectivity" },
   { id: "economic", num: "03", label: "Economic & Trade" },
   { id: "tech", num: "04", label: "Tech & Science" },
   { id: "society", num: "05", label: "Society & Diaspora" },
-  { id: "treaties", num: "06", label: "Treaties & Agreements" },
-  { id: "intel", num: "07", label: "Live Intelligence" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
@@ -26,15 +20,15 @@ const TEMP_TONE: Record<Temperature, string> = {
 };
 
 export function CorePillars({ partner }: { partner: Partner }) {
-  const [tab, setTab] = useState<TabId>("history");
+  const [tab, setTab] = useState<TabId>("political");
 
   return (
     <div>
-      <div className="sticky top-[57px] z-20 -mx-1 bg-background/95 py-3 backdrop-blur">
+      <div className="sticky top-[57px] z-20 -mx-1 bg-paper-deep/95 py-3 backdrop-blur">
         <div
           role="tablist"
           aria-label="Core Pillars"
-          className="grid grid-cols-2 gap-1.5 px-1 pb-1 sm:grid-cols-4"
+          className="grid grid-cols-2 gap-1.5 px-1 pb-1 sm:grid-cols-3 lg:grid-cols-5"
         >
           {TABS.map((t) => (
             <button
@@ -57,15 +51,7 @@ export function CorePillars({ partner }: { partner: Partner }) {
       </div>
 
       <div className="reveal pt-4" key={tab}>
-        {tab === "history" && (
-          <Section
-            title="Historical spine"
-            note="Events before and after 1947. Select a node to mark it."
-          >
-            <Timeline events={partner.timeline} />
-          </Section>
-        )}
-
+        
         {tab === "political" && (
           <Section title="Political & Strategic" note="Executive briefs, three sentences or fewer.">
             <div className="mb-5 flex items-center gap-3">
@@ -84,7 +70,7 @@ export function CorePillars({ partner }: { partner: Partner }) {
         )}
 
         {tab === "geographical" && (
-          <Section title="Geographical" note="Borders, maritime space and connectivity.">
+          <Section title="Geopolitics & Connectivity" note="Borders, maritime space and connectivity.">
             <Briefs briefs={partner.pillars.geographical} />
           </Section>
         )}
@@ -112,18 +98,8 @@ export function CorePillars({ partner }: { partner: Partner }) {
           </Section>
         )}
 
-        {tab === "treaties" && (
-          <Section title="Treaties & Agreements" note="Searchable and sortable register.">
-            <Treaties treaties={partner.treaties} />
-          </Section>
-        )}
-
-        {tab === "intel" && (
-          <Section title="Live Intelligence" note="Current affairs, most recent first.">
-            <LiveIntel items={partner.news} partner={partner.name} />
-          </Section>
-        )}
-      </div>
+        
+              </div>
     </div>
   );
 }
