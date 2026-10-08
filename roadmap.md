@@ -52,3 +52,11 @@ Root: India → Partner Country →
 - World Bank/IMF auto-refresh
 - RSS ingestion pipeline
 - Sankey trade diagram, decade slider, 3-way compare
+
+## v2 — full-width three-level dossier
+- [x] Map rebuilt from real geography; capitals at exact coordinates, no political borders
+- [x] Levels I (ledger) / II (dossier) / III (horizon) full width; 30/70 split removed
+- [x] Right-edge scroll tracker grouped by level
+- [x] Quadrant × rings posture explorer on the home page
+- [x] Convergence vs friction, 12-month retrospective/outlook, editor's desk, livewire
+- [ ] Editor's first dispatches (waiting on the author)
