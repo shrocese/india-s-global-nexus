@@ -206,7 +206,7 @@ function CountryDossier() {
           </section>
 
           <section id="s-wire" className="mt-16">
-            <SectionHead title="Livewire" note="Official releases and accredited reporting" />
+            <SectionHead title="Livewire" note="LATEST NEWS AND OFFICIAL DEVELOPMENTS" />
             <LiveIntel items={partner.news} partner={partner.name} />
           </section>
         </div>
