@@ -22,6 +22,12 @@ export interface Dispatch {
 export const DISPATCHES: Dispatch[] = [];
 
 export const HORIZON: Record<string, Horizon> = {
+  "european-union": {
+    convergence: ["Largest goods trade partner; FTA, investment and GI talks", "Trade and Technology Council, IMEC, clean energy"],
+    friction: ["Carbon border tax (CBAM) and deforestation rules", "Russia sanctions versus India's energy imports"],
+    retrospective: ["Leaders set a deadline to conclude the free trade agreement.", "The full Commission's visit to Delhi lifted the relationship's profile.", "CBAM reporting obligations began to bite on Indian exporters."],
+    outlook: ["Whether the FTA is signed and ratified.", "CBAM's definitive phase and any accommodation for India.", "Security and defence dialogue with the EU as an institution."],
+  },
   "united-states": {
     convergence: ["Indo-Pacific balance and the QUAD", "Critical and emerging technology, defence co-production"],
     friction: ["Tariffs and market access", "Immigration and visa regimes; India's Russia ties"],

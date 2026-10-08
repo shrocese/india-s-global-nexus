@@ -876,6 +876,121 @@ export const PARTNERS: Partner[] = [
   },
 
   {
+    code: "EU",
+    slug: "european-union",
+    name: "European Union",
+    formalName: "European Union (27 member states)",
+    region: "Europe",
+    lat: 50.85,
+    lng: 4.35,
+    temperature: "Cooperative",
+    headline: "India's largest trading partner in goods, negotiating as one bloc.",
+    summary:
+      "The EU is a supranational partner: trade, standards and regulation are negotiated in Brussels, while defence and foreign policy largely stay with member states. A Strategic Partnership since 2004, revived FTA talks since 2022, and a Trade and Technology Council since 2023.",
+    macro: {
+      capital: "Brussels (seat of institutions)",
+      headOfState: "Presidents of the European Council and the Commission",
+      system: "Supranational union of 27 states",
+      population: "449 M",
+      medianAge: "44.5",
+      hdi: "~0.90 (member average)",
+      gdp: "$19.4 T",
+      gdpPerCapita: "$43,200",
+      territory: "4,233,262 km²",
+      currency: "Euro (EUR) in 20 states",
+    },
+    trade: {
+      year: "FY 2023–24",
+      exports: "$75.9 B",
+      imports: "$61.5 B",
+      balanceNote: "Surplus for India in goods",
+      topExports: ["Refined petroleum", "Electronics", "Machinery", "Chemicals", "Textiles & apparel"],
+      topImports: ["Machinery", "Aircraft & parts", "Electronics", "Chemicals", "Precious stones"],
+    },
+    diaspora: {
+      total: "~3 M Indians and persons of Indian origin across member states",
+      students: "~70,000",
+      workers: "Growing via EU Blue Card; Germany is the largest destination",
+      note: "Figures aggregate member states; mobility is governed nationally plus Schengen rules.",
+    },
+    vitals: [
+      { label: "Time difference", value: "IST −3:30 (CEST, Brussels)" },
+      { label: "INR / EUR", value: "₹95.2", live: true },
+      { label: "Trade balance", value: "+$14.4 B", live: true },
+      { label: "Visa", value: "Schengen visa required" },
+    ],
+    timeline: [
+      { era: "pre", year: "1957", title: "Treaty of Rome", detail: "The European Economic Community is founded by six states." },
+      { era: "post", year: "1962", title: "Diplomatic relations", detail: "India is among the first countries to establish relations with the EEC." },
+      { era: "post", year: "1994", title: "Cooperation Agreement", detail: "Partnership and development framework signed." },
+      { era: "post", year: "2004", title: "Strategic Partnership", detail: "Upgraded at the fifth India–EU summit." },
+      { era: "post", year: "2013", title: "FTA talks stall", detail: "Negotiations on the BTIA are suspended after six years." },
+      { era: "post", year: "2022", title: "Talks relaunched", detail: "FTA, investment protection and geographical indications negotiations resume." },
+      { era: "post", year: "2023", title: "Trade and Technology Council", detail: "The EU's second TTC, after the United States, begins work." },
+      { era: "post", year: "2025", title: "College visit to Delhi", detail: "The full European Commission visits India; leaders target concluding the FTA." },
+    ],
+    pillars: {
+      political: [
+        {
+          topic: "Strategic partnership",
+          points: [
+            { text: "Annual summits and a 2025 joint strategic agenda frame cooperation on security, trade and technology.", source: mea },
+            { text: "Divergence persists on Russia, with the EU sanctioning Moscow while India continues energy imports.", source: mea },
+          ],
+        },
+      ],
+      geographical: [
+        {
+          topic: "Corridors and the Indian Ocean",
+          points: [
+            { text: "The EU is a signatory to the India–Middle East–Europe Economic Corridor (IMEC) memorandum.", source: mea },
+            { text: "Indian and EU naval forces have exercised together in the Gulf of Aden counter-piracy theatre.", source: mea },
+          ],
+        },
+      ],
+      economic: [
+        {
+          topic: "Trade and regulation",
+          points: [
+            { text: "The EU is India's largest goods trading partner as a bloc.", source: commerce },
+            { text: "The Carbon Border Adjustment Mechanism (CBAM) is a major Indian concern for steel and aluminium exports.", source: commerce },
+          ],
+        },
+      ],
+      tech: [
+        {
+          topic: "Trade and Technology Council",
+          points: [
+            { text: "The TTC works on semiconductors, digital public infrastructure, clean energy and resilient supply chains.", source: mea },
+            { text: "India is associated with EU research cooperation through the Horizon Europe framework.", source: mea },
+          ],
+        },
+      ],
+      society: [
+        {
+          topic: "Mobility",
+          points: [
+            { text: "Indians are among the largest recipients of EU Blue Cards for skilled workers.", source: mea },
+            { text: "A Common Agenda on Migration and Mobility was agreed in 2016.", source: mea },
+          ],
+        },
+      ],
+    },
+    treaties: [
+      { year: "1994", instrument: "Cooperation Agreement on Partnership and Development", sector: "Political", status: "Active" },
+      { year: "2004", instrument: "Strategic Partnership", sector: "Political", status: "Active", url: "https://www.mea.gov.in/bilateral-documents.htm" },
+      { year: "2016", instrument: "Common Agenda on Migration and Mobility", sector: "Consular", status: "Active" },
+      { year: "2020", instrument: "Euratom–India R&D Cooperation Agreement", sector: "Energy", status: "Active" },
+      { year: "2023", instrument: "Trade and Technology Council", sector: "Trade", status: "Active" },
+    ],
+    news: [
+      { date: "2026-09-18", source: "Ministry of Commerce", title: "FTA negotiating round closes in Brussels", summary: "Officials report progress on goods chapters; CBAM remains open." },
+      { date: "2026-09-02", source: "MEA", title: "TTC working groups meet on semiconductors", summary: "Supply-chain mapping and talent exchange discussed." },
+      { date: "2026-08-14", source: "European Commission", title: "IMEC follow-up meeting held", summary: "Partners review port and rail feasibility studies." },
+    ],
+  },
+
+  {
     code: "FR",
     slug: "france",
     name: "France",

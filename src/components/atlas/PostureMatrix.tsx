@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { POSTURE, QUADRANTS, RINGS, type Ring } from "@/data/posture";
+import { POSTURE, QUADRANTS, RINGS, SPECTRUM, type Ring } from "@/data/posture";
 import type { Partner } from "@/data/types";
 import { cn } from "@/lib/utils";
 
@@ -74,11 +74,19 @@ export function PostureMatrix({ partners }: { partners: Partner[] }) {
         <div className="flex flex-col justify-between gap-4">
           <div className="stamp space-y-2 text-ink-soft">
             <p>→ Right: strategic convergence · Left: friction</p>
-            <p>↑ Up: material interdependence · Down: distance</p>
+            <p>↑ Up: material interdependence · Down: little of it</p>
+          </div>
+          <div>
+            <div className="h-1.5 rounded-full bg-gradient-to-r from-oxide via-saffron to-jade" />
+            <ol className="stamp mt-2 grid grid-cols-4 gap-1 text-ink-soft">
+              {SPECTRUM.map((t) => (
+                <li key={t} className={cn("leading-tight", sp && quadOf(sp) === t && "text-oxide")}>{t}</li>
+              ))}
+            </ol>
           </div>
           {selected && sp ? (
             <div className="paper-card reveal p-5" key={selected.slug}>
-              <p className="stamp text-oxide">{RINGS.find((r) => r.id === sp.ring)?.label}</p>
+              <p className="stamp text-oxide">{RINGS.find((r) => r.id === sp.ring)?.label} · {quadOf(sp)}</p>
               <h3 className="mt-2 font-display text-3xl font-black">{selected.name}</h3>
               <p className="mt-2 text-sm text-ink-soft">{selected.headline}</p>
               <dl className="mt-4 grid grid-cols-2 gap-2">
@@ -104,6 +112,11 @@ export function PostureMatrix({ partners }: { partners: Partner[] }) {
       </div>
     </div>
   );
+}
+
+function quadOf(p: { x: number; y: number }) {
+  if (p.y >= 0) return p.x >= 0 ? QUADRANTS.tr : QUADRANTS.tl;
+  return p.x >= 0 ? QUADRANTS.br : QUADRANTS.bl;
 }
 
 function Corner({ className, text }: { className: string; text: string }) {
