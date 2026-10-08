@@ -31,7 +31,7 @@ const projection = geoEquirectangular()
   .translate([W / 2, H / 2]);
 const path = geoPath(projection);
 const topo = landTopo as unknown as Topology;
-const LAND_D = path(feature(topo, topo.objects.land) as never) ?? "";
+const LAND_D = path(feature(topo, topo.objects["land"]!) as never) ?? "";
 const GRID_D = path(geoGraticule10()) ?? "";
 
 function xy(lat: number, lng: number) {

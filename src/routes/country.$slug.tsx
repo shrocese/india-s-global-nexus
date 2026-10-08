@@ -9,7 +9,6 @@ import { VitalsRibbon } from "@/components/atlas/VitalsRibbon";
 import { WorldPlate } from "@/components/atlas/WorldPlate";
 import { DISPATCHES, HORIZON } from "@/data/horizon";
 import { INDIA, PARTNERS_BY_SLUG } from "@/data/partners";
-import type { Partner } from "@/data/types";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/country/$slug")({
@@ -299,4 +298,3 @@ function Cell({ label, value }: { label: string; value: string }) {
   );
 }
 
-export type { Partner };

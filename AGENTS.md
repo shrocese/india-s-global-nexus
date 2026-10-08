@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- World map is drawn from land-only geographic data with real coordinates; never draw political boundaries unless they follow the Government of India's official map — why: placement accuracy and official-map compliance.
