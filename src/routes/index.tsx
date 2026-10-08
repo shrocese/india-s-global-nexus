@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { PostureMatrix } from "@/components/atlas/PostureMatrix";
 import { WorldPlate } from "@/components/atlas/WorldPlate";
+import { POSTURE, RINGS } from "@/data/posture";
 import { INDIA, PARTNERS } from "@/data/partners";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +16,8 @@ export const Route = createFileRoute("/")({
           "A clickable map of India's bilateral relations. Ten partner states with macro indicators, historical timelines and seven core pillars each.",
       },
       { property: "og:title", content: "India Bilateral Atlas — partner index" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       {
         property: "og:description",
         content: "The world, read from New Delhi. Select a country to open its dossier.",
@@ -35,8 +39,10 @@ function Index() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return PARTNERS;
-    return PARTNERS.filter(
+    const order = (slug: string) => RINGS.findIndex((r) => r.id === POSTURE[slug]?.ring);
+    const sorted = [...PARTNERS].sort((a, b) => order(a.slug) - order(b.slug));
+    if (!q) return sorted;
+    return sorted.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||
         p.region.toLowerCase().includes(q) ||
@@ -103,7 +109,7 @@ function Index() {
                 >
                   <span>
                     {p.name}
-                    <span className="stamp ml-2 text-ink-soft">{p.region}</span>
+                    <span className="stamp ml-2 text-ink-soft">{RINGS.find((r) => r.id === POSTURE[p.slug]?.ring)?.label}</span>
                   </span>
                   <span className={cn("stamp", TEMP_TONE[p.temperature])}>
                     {p.temperature}
@@ -119,11 +125,18 @@ function Index() {
           </div>
         </div>
 
+        <section className="mt-16">
+          <p className="stamp text-oxide">Strategic posture</p>
+          <h2 className="mt-2 font-display text-4xl font-black tracking-tight">Where each partner stands</h2>
+          <p className="mt-2 max-w-[60ch] text-ink-soft">Filter by ring of power, then select a country to see its vector from New Delhi.</p>
+          <div className="mt-6"><PostureMatrix partners={PARTNERS} /></div>
+        </section>
+
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Stat label="Reference node" value="India" />
           <Stat label="Population" value={INDIA.population} />
           <Stat label="GDP (nominal)" value={INDIA.gdp} />
-          <Stat label="Core pillars per dossier" value="7" />
+          <Stat label="Core pillars per dossier" value="5" />
         </div>
       </div>
     </main>
