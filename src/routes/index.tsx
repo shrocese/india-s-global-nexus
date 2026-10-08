@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { PostureMatrix } from "@/components/atlas/PostureMatrix";
 import { WorldPlate } from "@/components/atlas/WorldPlate";
-import { POSTURE, RINGS } from "@/data/posture";
+import { POSTURE, RINGS, SPOTLIGHT } from "@/data/posture";
 import { INDIA, PARTNERS } from "@/data/partners";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A clickable map of India's bilateral relations. Ten partner states with macro indicators, historical timelines and seven core pillars each.",
+          "A clickable map of India's bilateral relations. Eleven partners with macro indicators, historical timelines and seven core pillars each.",
       },
       { property: "og:title", content: "India Bilateral Atlas — partner index" },
       { property: "og:type", content: "website" },
@@ -39,10 +39,10 @@ function Index() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const order = (slug: string) => RINGS.findIndex((r) => r.id === POSTURE[slug]?.ring);
-    const sorted = [...PARTNERS].sort((a, b) => order(a.slug) - order(b.slug));
-    if (!q) return sorted;
-    return sorted.filter(
+    if (!q) {
+      return SPOTLIGHT.map((s) => PARTNERS.find((p) => p.slug === s)).filter((p): p is (typeof PARTNERS)[number] => !!p);
+    }
+    return PARTNERS.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||
         p.region.toLowerCase().includes(q) ||
@@ -77,7 +77,7 @@ function Index() {
 
         <div className="mt-8 grid items-start gap-5 lg:grid-cols-[1.7fr_1fr]">
           <WorldPlate
-            markers={filtered}
+            markers={query.trim() ? filtered : PARTNERS}
             hovered={hovered}
             onHover={setHovered}
             priority
@@ -85,8 +85,8 @@ function Index() {
 
           <div className="paper-card p-4">
             <div className="flex items-baseline justify-between px-1">
-              <p className="stamp text-ink-soft">Selectable partners</p>
-              <p className="stamp text-ink-soft">{filtered.length} on file</p>
+              <p className="stamp text-ink-soft">{query.trim() ? "Search results" : "Spotlight partners"}</p>
+              <p className="stamp text-ink-soft">{PARTNERS.length} on file · search for more</p>
             </div>
             <div className="mt-3 space-y-1.5">
               <div className="flex items-center justify-between rounded-xl bg-oxide px-3 py-3 text-sm font-bold text-paper">
