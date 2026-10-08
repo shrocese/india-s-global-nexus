@@ -54,7 +54,7 @@ export function ScrollTracker({ stops }: { stops: TrackStop[] }) {
         <ol className="flex flex-col items-end">
           {stops.map((s, i) => {
             const on = s.id === active;
-            const newLevel = i === 0 || stops[i - 1].level !== s.level;
+            const newLevel = i === 0 || stops[i - 1]?.level !== s.level;
             return (
               <li key={s.id} className={cn(newLevel && i > 0 && "mt-5")}>
                 <button
