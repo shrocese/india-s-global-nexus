@@ -38,7 +38,7 @@ export const Route = createFileRoute("/country/$slug")({
   errorComponent: ({ error }) => (
     <div role="alert" className="mx-auto max-w-2xl px-5 py-24 text-center">
       <p className="stamp text-oxide">Retrieval failed</p>
-      <p className="mt-3 text-ink-soft">{error.message}</p>
+      <p className="mt-3 text-ink-soft">{error instanceof Error ? error.message : String(error)}</p>
     </div>
   ),
   notFoundComponent: () => (
